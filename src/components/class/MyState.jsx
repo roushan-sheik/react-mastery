@@ -32,6 +32,7 @@ class MyState extends Component {
         <button
           onClick={handleClickDecrement}
           className="btn m-2 btn-secondary"
+          disabled={count === 0 ? true : false}
         >
           Decrement
         </button>
