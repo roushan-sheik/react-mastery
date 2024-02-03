@@ -1,20 +1,18 @@
-import { Component } from "react";
+import React, { useState } from "react";
 
-export default class Event extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      setValue: "",
-    };
-  }
-  render ()
-  {
-    
-    return (
-      <div>
-        <h1>Event Handling</h1>
-        <input type="text" name="text" id="" oneChange={this.handleChange} />
-      </div>
-    );
-  }
+function Event() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <h2>{inputValue}</h2>
+    </>
+  );
 }
+
+export default Event;
