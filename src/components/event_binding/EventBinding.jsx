@@ -9,22 +9,21 @@ class EventBinding extends Component {
   }
   render() {
     //NOTE -  Increment
-    const handleClick = () => {
+    function handleClick() {
       console.log(this);
       this.setState({
         count: this.state.count + 1,
       });
-    };
- 
+    }
+
     const { count } = this.state;
     return (
       <div className="container m-auto">
         <h1>Counter State change App</h1>
         <h2>{count}</h2>
-        <button onClick={handleClick} className="btn  btn-primary">
+        <button onClick={handleClick.bind(this)} className="btn  btn-primary">
           Increment
         </button>
-
       </div>
     );
   }
