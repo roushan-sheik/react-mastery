@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { React } from "react";
-
+// import { email, object, required, string } from "yup";
+import * as yup from "yup";
 export default function FormikForm() {
   // Pass the useFormik() hook initial form values and a submit function that will
   // be called when the form is submitted
@@ -10,11 +11,23 @@ export default function FormikForm() {
       email: "",
       password: "",
     },
+    // We have a validation schema with formik to validate our field
+    validationSchema: yup.object({
+      name: yup
+        .string("please provide strings")
+        .required("name must required")
+        .min(2, "name name must be greater than 2 characters"),
+      email: yup.email("please provide valid email").required("required"),
+      password: yup
+        .required("required")
+        .min(8, "password should be min 8 characters"),
+    }),
     onSubmit: (values) => {
       console.log(values);
       alert(values);
     },
-  });
+  } );
+  // 
 
   return (
     <div className="h-screen bg-gray-700 flex justify-center items-center w-screen">
