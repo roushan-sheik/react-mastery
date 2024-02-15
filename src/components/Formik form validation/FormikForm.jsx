@@ -22,15 +22,16 @@ export default function FormikForm() {
     },
   });
   // Validation message
-  let renderNameErrors = formik.errors.name && (
+  let renderNameErrors = formik.touched.name && formik.errors.name && (
     <span className="text-red-500">{formik.errors.name}</span>
   );
-  let renderEmailErrors = formik.errors.email && (
+  let renderEmailErrors = formik.touched.email && formik.errors.email && (
     <span className="text-red-500">{formik.errors.email}</span>
   );
-  let renderPasswordErrors = formik.errors.password && (
-    <span className="text-red-500">{formik.errors.password}</span>
-  );
+  let renderPasswordErrors = formik.touched.password &&
+    formik.errors.password && (
+      <span className="text-red-500">{formik.errors.password}</span>
+    );
 
   return (
     <div className="h-screen bg-gray-700 flex justify-center items-center w-screen">
