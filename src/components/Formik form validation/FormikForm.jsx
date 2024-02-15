@@ -1,23 +1,25 @@
-import { React, useState } from "react";
+import { useFormik } from "formik";
+import { React } from "react";
+
 export default function FormikForm() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
+  // Pass the useFormik() hook initial form values and a submit function that will
+  // be called when the form is submitted
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      alert(values);
+    },
   });
-  function handleChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  }
-  // handle the form
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(user);
-  }
 
   return (
     <div className="h-screen bg-gray-700 flex justify-center items-center w-screen">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={formik.handleSubmit}
         className="h-[400px] w-[400px] bg-gray-300 p-6 rounded-md"
         action="#"
       >
@@ -28,7 +30,7 @@ export default function FormikForm() {
           </label>
           <br />
           <input
-            onChange={handleChange}
+            onChange={formik.handleChange}
             type="text"
             placeholder="Name.."
             name="name"
@@ -38,7 +40,7 @@ export default function FormikForm() {
         <div>
           <label htmlFor="email">Email:</label>
           <input
-            onChange={handleChange}
+            onChange={formik.handleChange}
             className="input my-4 input-bordered input-primary w-full max-w-xs"
             type="email"
             name="email"
@@ -47,7 +49,7 @@ export default function FormikForm() {
         <div>
           <label htmlFor="password">Password:</label>
           <input
-            onChange={handleChange}
+            onChange={formik.handleChange}
             className="input my-4 input-bordered input-primary w-full max-w-xs"
             type="password"
             name="password"

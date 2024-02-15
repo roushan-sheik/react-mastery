@@ -1,13 +1,9 @@
-import State from "./components/passing data child to parent/State-lifting";
+import FormikForm from "./components/Formik form validation/FormikForm";
 
 function App() {
-  function getData(data) {
-    console.log(data);
-    console.log("App comp:");
-  }
   return (
     <div className="container">
-      <State getData={getData} />
+      <FormikForm />
     </div>
   );
 }
