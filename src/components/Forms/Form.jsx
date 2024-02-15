@@ -8,15 +8,7 @@ export default function Form() {
   });
 
   function handleChange(e) {
-    const { name, email, password } = user;
-    let fieldName = e.target.name;
-    if (fieldName === "name") {
-      setUser({ name: e.target.value, email, password });
-    } else if (fieldName === "email") {
-      setUser({ name, email: e.target.value, password });
-    } else if (fieldName === "password") {
-      setUser({ name, email, password: e.target.value });
-    }
+    setUser({ ...user, [e.target.name]: e.target.value });
   }
   // handle the form
   function handleSubmit(e) {
