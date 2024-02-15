@@ -1,11 +1,13 @@
-import Form from "./components/Forms/Form";
+import State from "./components/passing data child to parent/State-lifting";
 
 function App() {
-  let title = "This is card title ";
-  let para = "This is Para about blog";
+  function getData(data) {
+    console.log(data);
+    console.log("App comp:");
+  }
   return (
     <div className="container">
-      <Form />
+      <State getData={getData} />
     </div>
   );
 }

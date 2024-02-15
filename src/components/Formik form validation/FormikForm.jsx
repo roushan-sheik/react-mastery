@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-export default function Form() {
+export default function FormikForm() {
   const [user, setUser] = useState({
     name: "",
     email: "",
