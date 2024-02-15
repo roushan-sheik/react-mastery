@@ -1,28 +1,27 @@
 import { React, useState } from "react";
 
 export default function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
+  function handleChange(e) {
+    const { name, email, password } = user;
+    let fieldName = e.target.name;
+    if (fieldName === "name") {
+      setUser({ name: e.target.value, email, password });
+    } else if (fieldName === "email") {
+      setUser({ name, email: e.target.value, password });
+    } else if (fieldName === "password") {
+      setUser({ name, email, password: e.target.value });
+    }
   }
   // handle the form
   function handleSubmit(e) {
     e.preventDefault();
-    let person = {
-      name,
-      email,
-      password,
-    };
-    console.log(person);
+    console.log(user);
   }
 
   return (
@@ -39,7 +38,7 @@ export default function Form() {
           </label>
           <br />
           <input
-            onChange={handleNameChange}
+            onChange={handleChange}
             type="text"
             placeholder="Name.."
             name="name"
@@ -49,21 +48,19 @@ export default function Form() {
         <div>
           <label htmlFor="email">Email:</label>
           <input
-            onChange={handleEmailChange}
+            onChange={handleChange}
             className="input my-4 input-bordered input-primary w-full max-w-xs"
             type="email"
             name="email"
-            id="email"
           />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
           <input
-            onChange={handlePasswordChange}
+            onChange={handleChange}
             className="input my-4 input-bordered input-primary w-full max-w-xs"
             type="password"
             name="password"
-            id="password"
           />
         </div>
         <button type="submit" className="btn w-full btn-primary">
