@@ -1,9 +1,9 @@
-import Faqs from "./components/faq/Faqs";
+import UseEffectExample from "./components/Hooks/useEffect/UseEffectExample";
 
 function App() {
   return (
     <div className="container">
-      <Faqs />
+      <UseEffectExample />
     </div>
   );
 }
