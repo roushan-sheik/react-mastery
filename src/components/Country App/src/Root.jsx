@@ -26,9 +26,16 @@ const Root = () => {
     fetchData(url);
   }, []);
   return (
-    <main className="bg-gray-600 p-6 ">
+    <main className="bg-gray-600 p-12 lg:p-4 ">
+      <div>
+        <h1 className="text-white pb-4 text-4xl font-bold py-4 text-center">
+          Country App
+        </h1>
+      </div>
       <div className="text-white">
-        <h2 className="text-3xl font-bold">{loading && "Loading..."}</h2>
+        <h2 className="text-center text-3xl font-bold">
+          {loading && "Loading..."}
+        </h2>
         <h2 className="text-3xl font-bold">{error && error}</h2>
       </div>
       <Countries countries={countries} />

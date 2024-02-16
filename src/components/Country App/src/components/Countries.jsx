@@ -1,14 +1,13 @@
 import React from "react";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import Country from "./Country";
 
 const Countries = (props) => {
-  console.log(props.countries);
   return (
-    <section className=" p-4 bg-gray-50">
+    <section className=" lg:p-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
       {props.countries.map((country) => {
         // make a new country object
-        const newCountry = { country, id: uuid() };
+        const newCountry = { country, id: uuidv4() };
         return <Country {...newCountry} key={newCountry.id} />;
       })}
     </section>
