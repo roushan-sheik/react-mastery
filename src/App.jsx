@@ -1,9 +1,9 @@
-import FormikForm from "./components/Formik form validation/FormikForm";
+import Faqs from "./components/faq/Faqs";
 
 function App() {
   return (
     <div className="container">
-      <FormikForm />
+      <Faqs />
     </div>
   );
 }
