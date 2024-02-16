@@ -1,9 +1,8 @@
-import FetchAPI from "./components/Hooks/useEffect/FetchAPI";
-
+import FetchAPICustom from "./components/Hooks/customHook/FetchAPICustom";
 function App() {
   return (
     <div className="container">
-      <FetchAPI />
+      <FetchAPICustom />
     </div>
   );
 }

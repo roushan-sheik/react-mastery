@@ -5,6 +5,7 @@ const FetchAPI = () => {
   const [loading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const url = "https://jsonplaceholder.typicode.com/todos	";
+
   useEffect(() => {
     setTimeout(() => {
       fetch(url)
