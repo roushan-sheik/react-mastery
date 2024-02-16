@@ -1,9 +1,9 @@
-import UseEffectExample from "./components/Hooks/useEffect/UseEffectExample";
+import FetchAPI from "./components/Hooks/useEffect/FetchAPI";
 
 function App() {
   return (
     <div className="container">
-      <UseEffectExample />
+      <FetchAPI />
     </div>
   );
 }
