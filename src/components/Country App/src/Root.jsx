@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Countries from "./components/Countries";
+import Search from "./components/Search";
 
 const Root = () => {
   const url = "https://restcountries.com/v3.1/all";
@@ -34,12 +35,19 @@ const Root = () => {
     );
     setFilterCountry(filterCountry);
   }
+  // Search functionality
+  function onSearch(text) {
+    console.log(text);
+  }
   return (
     <main className="bg-gray-600 p-12 lg:p-4 ">
       <div>
         <h1 className="text-white pb-4 text-4xl font-bold py-4 text-center">
           Country App
         </h1>
+        <div className="flex justify-center items-center">
+          <Search onSearch={onSearch} />
+        </div>
       </div>
       <div className="text-white">
         <h2 className="text-center text-3xl font-bold">

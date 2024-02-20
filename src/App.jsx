@@ -1,9 +1,10 @@
-import Root from "./components/Country App/src/Root";
+import UseReducer from "./components/Hooks/useReducer/UseReducer";
+
 function App() {
   return (
     <div className="container h-screen  lg:w-3/4 mx-auto">
       <div>
-        <Root />
+        <UseReducer />
       </div>
     </div>
   );
