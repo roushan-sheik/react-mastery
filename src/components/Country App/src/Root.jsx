@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Countries from "./components/Countries";
 
 const Root = () => {
+  const url = "https://restcountries.com/v3.1/all";
   const [countries, setCountry] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const url = "https://restcountries.com/v3.1/all";
+  const [filterCountry, setFilterCountry] = useState(countries);
   // Create a fetchData function to fetch data
   async function fetchData(url) {
     setLoading(true);
@@ -13,6 +14,7 @@ const Root = () => {
       const response = await fetch(url);
       const data = await response.json();
       setCountry(data);
+      setFilterCountry(data);
       setLoading(false);
       setError(null);
       // console.log(countries);
@@ -25,6 +27,13 @@ const Root = () => {
   useEffect(() => {
     fetchData(url);
   }, []);
+  // remove country
+  function handleRemoveCountry(name) {
+    const filterCountry = countries.filter(
+      (country) => country.name.common !== name
+    );
+    setFilterCountry(filterCountry);
+  }
   return (
     <main className="bg-gray-600 p-12 lg:p-4 ">
       <div>
@@ -38,7 +47,10 @@ const Root = () => {
         </h2>
         <h2 className="text-3xl font-bold">{error && error}</h2>
       </div>
-      <Countries countries={countries} />
+      <Countries
+        handleRemoveCountry={handleRemoveCountry}
+        countries={filterCountry}
+      />
     </main>
   );
 };

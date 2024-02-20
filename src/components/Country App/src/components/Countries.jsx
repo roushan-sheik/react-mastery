@@ -8,7 +8,13 @@ const Countries = (props) => {
       {props.countries.map((country) => {
         // make a new country object
         const newCountry = { country, id: uuidv4() };
-        return <Country {...newCountry} key={newCountry.id} />;
+        return (
+          <Country
+            handleRemoveCountry={props.handleRemoveCountry}
+            {...newCountry}
+            key={newCountry.id}
+          />
+        );
       })}
     </section>
   );
