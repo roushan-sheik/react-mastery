@@ -1,10 +1,13 @@
 import React from "react";
 import { basketContext } from "../Root";
+const mobileSell = "MOBILE_SELL";
+const cameraSell = "CAMERA_SELL";
 
 const Increment = () => {
   const myBasketContext = React.useContext(basketContext);
-  const mobileSell = "MOBILE_SELL";
-  const cameraSell = "CAMERA_SELL";
+  //* myBasketContext এর মাঝে একটা অবজেক্ট আছে যেটা
+  //* র‌্যাপ করার সময় ভ্যালু  হিসেবে পাঠিয়েছিলাম
+  //* { handleBasket: dispatch, stateOutput: state }
   function handleCamera() {
     myBasketContext.handleBasket({ type: cameraSell, price: 20000 });
   }

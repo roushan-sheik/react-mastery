@@ -5,7 +5,7 @@ export const basketContext = React.createContext();
 const Root = () => {
   const mobileSell = "MOBILE_SELL";
   const cameraSell = "CAMERA_SELL";
-  const totalSold = "TOTAL_SOLD";
+
   // Main State
   const initialState = {
     count: 0,
