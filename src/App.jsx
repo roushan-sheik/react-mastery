@@ -1,10 +1,11 @@
-import ComplexReducer from "./components/Hooks/useReducer/ComplexReducer";
+import Root from "./components/Hooks/stateManagement/Root";
+ 
 
 function App() {
   return (
     <div className="container h-screen  lg:w-3/4 mx-auto">
       <div>
-        <ComplexReducer></ComplexReducer>
+        <Root></Root>
       </div>
     </div>
   );
