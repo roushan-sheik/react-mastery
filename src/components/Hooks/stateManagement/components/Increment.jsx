@@ -7,11 +7,9 @@ const Increment = () => {
   const cameraSell = "CAMERA_SELL";
   function handleCamera() {
     myBasketContext.handleBasket({ type: cameraSell, price: 20000 });
-    console.log("camera clicked");
   }
   function handleMobile() {
     myBasketContext.handleBasket({ type: mobileSell, price: 8000 });
-    console.log("mobile clicked");
   }
   return (
     <div>
@@ -21,13 +19,18 @@ const Increment = () => {
         </h1>
         <div>
           <h2 className="py-6 text-3xl">
-            Sotal Sold item : {myBasketContext.countHandler.count}
+            Total Sold : {myBasketContext.stateOutput.totalSold} Tk
+          </h2>
+          <p>phone price: 8000 Tk</p>
+          <h2 className="py-6 text-3xl">
+            Sotal Sold item : {myBasketContext.stateOutput.count} Pice
           </h2>
           <h2 className="py-6 text-3xl">
-            Mobile Sold : {myBasketContext.countHandler.mobileSold}
+            Mobile Sold: {myBasketContext.stateOutput.mobileSold} Tk
           </h2>
+          <p>camera price: 20000 Tk</p>
           <h2 className="py-6 text-3xl">
-            Camera Sold : {myBasketContext.countHandler.cameraSold}
+            Camera Sold: {myBasketContext.stateOutput.cameraSold} Tk
           </h2>
         </div>
         <div>
@@ -35,10 +38,10 @@ const Increment = () => {
             onClick={() => handleCamera()}
             className="btn mr-6 my-6 btn-primary "
           >
-            Camera
+            Sell Camera
           </button>
           <button onClick={() => handleMobile()} className="btn btn-info ">
-            Mobile
+            Sell Mobile
           </button>
         </div>
       </div>
