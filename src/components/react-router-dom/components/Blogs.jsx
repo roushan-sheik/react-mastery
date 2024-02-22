@@ -14,12 +14,13 @@ const Blogs = () => {
       <h2 className="text-4xl font-bold ">Blogs</h2>
       <div>
         {blogs.map((blog) => {
-          console.log(blog);
+          const { id, title, body } = blog;
+
           return (
             <div className="p-6 bg-gray-200 my-4">
-              <h2 className="text-2xl font-semibold">{blog.title}</h2>
-              <p>{makeSlice(blog.body, 200)}</p>
-              <Link className="btn mt-4" to={blog.title}>
+              <h2 className="text-2xl font-semibold">{title}</h2>
+              <p>{makeSlice(body, 200)}</p>
+              <Link state={blog} className="btn mt-4" to={title}>
                 Show more
               </Link>
             </div>
