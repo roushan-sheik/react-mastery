@@ -5,7 +5,7 @@
 nav .active {
   color: black;
   font-weight: bold;
-  background-color: rgb(31, 255, 76);
+  background-color: rgb(224, 224, 224);
   padding: 10px;
   border-radius: 10px;
 }
