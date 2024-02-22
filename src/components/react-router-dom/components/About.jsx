@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <h2 className="text-4xl font-bold ">About</h2>
@@ -18,6 +20,11 @@ const About = () => {
         saepe! Eos eveniet quibusdam iste natus corporis eligendi saepe
         voluptatum totam porro nemo!
       </p>
+      <div className="p-6">
+        <button onClick={() => navigate("/")} className="btn btn-info">
+          Go to home page
+        </button>
+      </div>
     </div>
   );
 };

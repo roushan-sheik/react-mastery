@@ -1,27 +1,30 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { blogs } from "./data";
 const Blogs = () => {
+  function makeSlice(str, num) {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
   return (
     <div>
       <h2 className="text-4xl font-bold ">Blogs</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quo enim
-        error exercitationem deserunt, sit consectetur, eos minus ducimus
-        asperiores blanditiis laborum incidunt corrupti neque ex voluptate
-        saepe! Eos eveniet quibusdam iste natus corporis eligendi saepe
-        voluptatum totam porro nemo!
-      </p>
       <div>
-        <h2>blog 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-          nulla non laboriosam impedit exercitationem, cumque inventore
-          temporibus, quod nam quae quam aut doloribus vero vel, similique
-          adipisci. Incidunt, veritatis neque? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Quaerat maiores magni voluptas ipsa
-          obcaecati nemo at inventore distinctio suscipit! Nihil fuga maxime sed
-          harum ad animi odit facere provident unde?
-        </p>
+        {blogs.map((blog) => {
+          console.log(blog);
+          return (
+            <div className="p-6 bg-gray-200 my-4">
+              <h2 className="text-2xl font-semibold">{blog.title}</h2>
+              <p>{makeSlice(blog.body, 200)}</p>
+              <Link className="btn mt-4" to={blog.title}>
+                Show more
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
