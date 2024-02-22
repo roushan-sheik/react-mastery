@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+nav .active {
+  color: black;
+  font-weight: bold;
+  background-color: rgb(31, 255, 76);
+  padding: 10px;
+  border-radius: 10px;
+}
