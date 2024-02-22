@@ -6,6 +6,7 @@ import Blogs from "./components/Blogs";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import NotFound from "./components/NotFound";
+import Protected from "./components/Protected";
 import User from "./components/User";
 
 const Root = () => {
@@ -16,7 +17,14 @@ const Root = () => {
         <Routes>
           <Route path={"/"} element={<Home />}></Route>
           <Route path={"/about"} element={<About />}></Route>
-          <Route path={"/blogs"} element={<Blogs />}></Route>
+          <Route
+            path={"/blogs"}
+            element={
+              <Protected>
+                <Blogs />
+              </Protected>
+            }
+          ></Route>
           <Route path={"/blogs/:title"} element={<Blog />}></Route>
           <Route path={"/user"} element={<User />}></Route>
           <Route path={"*"} element={<NotFound />}></Route>
