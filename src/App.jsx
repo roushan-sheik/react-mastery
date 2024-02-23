@@ -1,10 +1,10 @@
-import ReduxRoot from "../projects/redux/ReduxRoot";
+import TodoRoot from "../projects/TodoRedux/TodoRoot";
 
 function App() {
   return (
     <div className="container h-screen  lg:w-3/4 mx-auto">
       <div>
-        <ReduxRoot></ReduxRoot>
+        <TodoRoot></TodoRoot>
       </div>
     </div>
   );
