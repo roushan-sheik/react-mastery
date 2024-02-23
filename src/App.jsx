@@ -1,10 +1,10 @@
-import Root from "./components/react-router-dom/Root";
+import ReduxRoot from "../projects/redux/ReduxRoot";
 
 function App() {
   return (
     <div className="container h-screen  lg:w-3/4 mx-auto">
       <div>
-        <Root></Root>
+        <ReduxRoot></ReduxRoot>
       </div>
     </div>
   );
